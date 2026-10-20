@@ -1,0 +1,21 @@
+{
+  "type": "script",
+  "enabled": true,
+  "name": "人物档案助手 · 独立建档 0.3.1",
+  "id": "6bf0fa34-0b9c-4dd0-864f-a6ca8658160c",
+  "info": "内置条目创建、持久登记、更新与清理；只依赖酒馆助手，不需要安装或修改数据库。新聊天事件触发清理；保留当前聊天人物。跨书按本工具专用名称找回旧条目，无法识别归属的旧版条目也会被清理。Tauritavern实机待验。",
+  "button": {
+    "enabled": true,
+    "buttons": [
+      {
+        "name": "人物档案",
+        "visible": true
+      }
+    ]
+  },
+  "data": {},
+  "export_with": {
+    "data": true,
+    "button": true
+  }
+}

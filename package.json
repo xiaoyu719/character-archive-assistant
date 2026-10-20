@@ -1,0 +1,13 @@
+{
+  "name": "character-archive-assistant",
+  "version": "0.3.1",
+  "private": true,
+  "description": "SillyTavern 人物档案助手",
+  "scripts": {
+    "build": "node build-standalone.cjs",
+    "test": "node --test generation-format.test.cjs standalone.test.cjs tests.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}
