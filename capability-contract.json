@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "minimum": { "sillytavern": null, "tavernHelper": null },
+  "requirements": [
+    { "id": "host-context", "owner": "sillytavern", "symbol": "SillyTavern.getContext", "required": true, "fallback": null },
+    { "id": "host-events", "owner": "sillytavern", "symbol": "SillyTavern.getContext().eventSource", "required": true, "fallback": null },
+    { "id": "host-event-types", "owner": "sillytavern", "symbol": "SillyTavern.getContext().event_types", "required": true, "fallback": null },
+    { "id": "helper-generation", "owner": "tavern-helper", "symbol": "TavernHelper.generateRaw", "required": true, "fallback": null },
+    { "id": "helper-worldbook-read", "owner": "tavern-helper", "symbol": "TavernHelper.getWorldbook", "required": true, "fallback": null },
+    { "id": "helper-worldbook-create", "owner": "tavern-helper", "symbol": "TavernHelper.createWorldbookEntries", "required": true, "fallback": null },
+    { "id": "helper-worldbook-update", "owner": "tavern-helper", "symbol": "TavernHelper.updateWorldbookWith", "required": true, "fallback": null },
+    { "id": "helper-worldbook-delete", "owner": "tavern-helper", "symbol": "TavernHelper.deleteWorldbookEntries", "required": true, "fallback": null },
+    { "id": "character-reference", "owner": "tavern-helper", "symbol": "TavernHelper.getCharacter", "required": false, "fallback": "只读取已选世界书和用户填写的设定，界面明确提示角色卡未读取" }
+  ]
+}

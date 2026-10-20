@@ -1,17 +1,21 @@
 # 人物档案助手
 
-用于 SillyTavern / TauriTavern 的酒馆助手脚本。给一点模糊设定，由 AI 补成人物草稿；审阅后存入已有世界书，玩家主动决定人物何时登场。
+通过 GitHub 仓库链接安装的 SillyTavern / TauriTavern 扩展。给一点模糊设定，由 AI 补成人物草稿；审阅后存入已有世界书，玩家主动决定人物何时登场。生成与世界书读写使用已经安装的酒馆助手。
 
-**[下载 v0.3.1 脚本](https://github.com/xiaoyu719/character-archive-assistant/releases/download/v0.3.1/character-archive.script.json)** · [版本与下载页](https://github.com/xiaoyu719/character-archive-assistant/releases/latest) · [备用直接下载](https://raw.githubusercontent.com/xiaoyu719/character-archive-assistant/main/character-archive.script.json)
+安装时填写仓库地址：
+
+```text
+https://github.com/xiaoyu719/character-archive-assistant
+```
 
 ## 安装
 
-1. 使用已安装酒馆助手、支持脚本功能的 SillyTavern 或 TauriTavern。
-2. 下载上面的 `character-archive.script.json`。如果备用链接只显示文字，请保存为这个文件名。
-3. 在酒馆助手的脚本管理中，通过导入功能选择该 JSON。升级时替换或停用旧人物助手，只运行一份。
-4. 启用脚本、打开角色聊天，点击右下角“人物档案”。
+1. 确认酒馆助手已安装并启用。
+2. 打开酒馆的扩展管理，点击“安装扩展”，粘贴上述 GitHub 仓库地址并安装。
+3. 按宿主提示启用扩展或刷新页面。若以前导入过人物助手脚本，请停用旧脚本，避免重复运行。
+4. 打开角色聊天，点击右下角“人物档案”。如果酒馆助手还在加载，会显示等待/重试入口。
 
-这是酒馆助手脚本 JSON，不是角色卡，也不是通过“扩展安装”粘贴仓库地址安装的扩展。不需要安装或修改数据库插件。
+不需要下载人物脚本 JSON 后再手动导入，不需要安装或修改数据库。仓库根目录提供 manifest.json 和扩展入口；宿主安装方式以支持仓库链接的扩展管理为前提。该安装路径尚未在用户实际客户端执行验收。
 
 ## 使用
 
@@ -45,7 +49,7 @@ TW-CharacterArchive-v1-LIVE-
 
 ## 版本状态
 
-v0.3.1 已收到使用者“初步测试合格”的反馈。35 项离线测试及脚本导入格式校验通过。尚未逐项验证不同宿主版本、全部新聊天时序、移动端及多设备边界；初步通过不代表所有兼容性场景通过。
+v0.4.0 新增仓库链接安装入口，复用 v0.3.1 人物功能。v0.3.1 曾收到使用者“初步测试合格”的反馈，该反馈只覆盖此前脚本版，不代表新增扩展入口已经实机通过。扩展入口的加载、等待酒馆助手、禁用清理有离线测试，真实安装、启停和移动端仍待验证。
 
 v0.3.1 修复模型返回 JSON 代码块导致的解析失败，并增加生成原文查看和修正入口。
 
@@ -59,8 +63,8 @@ npm run build
 npm test
 ```
 
-`build-standalone.cjs` 从源码生成根目录可导入 JSON；生成中间文件放在 `standalone-v0.3.1/`。`tests.cjs` 保留早期基础行为测试，`standalone.test.cjs` 检查当前独立管理和浮窗链路，`generation-format.test.cjs` 检查格式修复。测试使用模拟模型和世界书，不代替宿主实测。
+`build-standalone.cjs` 保留旧脚本产物构建，`build-extension.cjs` 从同一份人物代码生成 `extension-runtime.js`；`manifest.json` 加载 `index.js`。`extension.test.cjs` 检查主窗口酒馆助手适配、宿主事件与启停，其他测试保留人设和条目管理覆盖。测试使用模拟模型和世界书，不代替宿主实测。
 
-运行时依赖是宿主提供的酒馆助手接口。没有远程脚本加载，也不需要数据库 API。`jsdom` 只用于开发测试。
+运行时依赖是宿主主窗口提供的 `TavernHelper` 和 `SillyTavern.getContext()`。没有远程脚本加载，也不需要数据库 API。`jsdom` 只用于开发测试。旧版 [v0.3.1 JSON 下载](https://github.com/xiaoyu719/character-archive-assistant/releases/tag/v0.3.1) 仅保留为历史回退，不是当前推荐安装步骤。
 
 接口和流程依据见 [PROVENANCE.md](PROVENANCE.md)。

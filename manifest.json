@@ -1,0 +1,17 @@
+{
+  "display_name": "人物档案助手",
+  "loading_order": 100,
+  "dependencies": [],
+  "js": "index.js",
+  "author": "xiaoyu719",
+  "version": "0.4.0",
+  "homePage": "https://github.com/xiaoyu719/character-archive-assistant",
+  "auto_update": false,
+  "hooks": {
+    "activate": "onActivate",
+    "enable": "onEnable",
+    "disable": "onDisable",
+    "delete": "onDelete",
+    "clean": "onClean"
+  }
+}

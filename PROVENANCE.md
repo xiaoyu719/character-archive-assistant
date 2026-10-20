@@ -10,3 +10,5 @@
 声明和固定源码只证明对应版本的结构，不能证明所有最新宿主都一致。脚本保留接口存在检查，具体行为仍需对应宿主验证。
 
 独立脚本稳定 ID：`6bf0fa34-0b9c-4dd0-864f-a6ca8658160c`。
+
+v0.4.0 扩展安装入口依据上述TauriTavern提交的 `src/scripts/extensions.js`：仓库安装、根manifest读取、模块导出hook调用。主窗口API声明位于JS-Slash-Runner的 `@types/function/index.d.ts`，扩展仅依赖其中公开的Window.TavernHelper；事件订阅由宿主getContext().eventSource接管，去掉仅属于脚本iframe的getButtonEvent依赖。静态与离线验证记录见EXTENSION-VALIDATION.md，真实链接安装待验。
